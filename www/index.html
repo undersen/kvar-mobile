@@ -9,7 +9,7 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/gear.css" rel="stylesheet">
+
     <link href="css/style.css" rel="stylesheet">
 
 
@@ -40,6 +40,8 @@
     <!-- Controllers -->
 
     <script src="js/controller/splash_controller.js"></script>
+    <script src="js/controller/quotation_controller.js"></script>
+    <script src="https://use.fontawesome.com/aaa6185285.js"></script>
 
   </head>
   <body ng-app="kVar">
@@ -53,6 +55,110 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
+
+    <!-- Modal to add a motor -->
+
+    <!--
+  <ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">My Modal title</h1>
+    </ion-header-bar>
+    <ion-content>
+      Hello!
+    </ion-content>
+  </ion-modal-view>
+</script> -->
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view >
+    <ion-header-bar style="background-color:#009688;height: 35vh;">
+      <h2 class="header" style="color:white"></h2>
+      <button class="button button-clear button-primary" id="cancel-modal-button" ng-click="modal.hide()" style="color:white;">Close</button>
+    </ion-header-bar>
+    <ion-content style="z-index:10;">
+      <div class="row" id="first-step">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content" style="padding:0px;">
+              <span class="card-title black-text">Agregar motor</span>
+
+              <p style="font-size: small;">El costo del WeFix es de {{servicePrice | number:0}}CLP El especialista detallo que: {{serviceComment}} </br>Si aceptas el valor, haz clic en <b>Pagar</b>.</p>
+
+              <div class="card-action">
+                <div class="right-align width-100 delay-4" ng-click="rateEmployee();">
+                  <a style="padding: 0px;margin-right: 0px;" class="btn-flat" >Accept</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row hide" id="second-step" >
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content" style="padding:0px;">
+
+              <div class="input-field col s12">
+     <textarea id="comment" class="materialize-textarea" ng-model="evaluation.comment"></textarea>
+     <label for="comment">Comentarios sobre empleado</label>
+   </div>
+
+
+            <div class="row center-align">
+
+              <div class="col s2"><i style="color:#ffcc00;font-size: 25px;" id="star1-o"  class="fa fa-star" aria-hidden="true" ng-click="paint(1);"></i> <i id="star1-" style="color:#ffcc00;font-size: 25px;" class="fa fa-star hide" aria-hidden="true" ng-click="noPaint(1);"></i></div>
+              <div class="col s2"><i style="font-size: 25px;" id="star2-o" class="fa fa-star-o" aria-hidden="true" ng-click="paint(2);"></i> <i id="star2-" style="color:#ffcc00;font-size: 25px;" class="fa fa-star hide" aria-hidden="true" ng-click="noPaint(2);"></i></div>
+              <div class="col s2"><i style="font-size: 25px;" id="star3-o" class="fa fa-star-o" aria-hidden="true" ng-click="paint(3);"></i> <i id="star3-" style="color:#ffcc00;font-size: 25px;" class="fa fa-star hide" aria-hidden="true" ng-click="noPaint(3);"></i></div>
+              <div class="col s2"><i style="font-size: 25px;" id="star4-o" class="fa fa-star-o" aria-hidden="true" ng-click="paint(4);"></i> <i id="star4-" style="color:#ffcc00;font-size: 25px;" class="fa fa-star hide" aria-hidden="true" ng-click="noPaint(4);"></i></div>
+              <div class="col s2"><i style="font-size: 25px;" id="star5-o" class="fa fa-star-o" aria-hidden="true" ng-click="paint(5);"></i> <i id="star5-" style="color:#ffcc00;font-size: 25px;" class="fa fa-star hide" aria-hidden="true" ng-click="noPaint(5);"></i></div>
+
+            </div>
+              <div class="card-action">
+                <div class="right-align width-100 delay-4" ng-click="finishService();">
+                  <a style="padding: 0px;margin-right: 0px;" class="btn-flat" >Evaluar</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<style>
+#content {
+  overflow: visible;
+}
+  .header-item
+  {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: normal;
+    text-transform: capitalize;
+    color: white;
+  }
+  .bar.bar-stable .title {
+    color: #fff;
+  }
+  .bar-stable .button.button-clear {
+
+    color: #fff;
+
+  }
+  .modal {
+    display: -webkit-box;
+    background-color: #ffffff;
+    width:100%;
+  }
+
+  .card .card-action {
+  border-top: 0px solid rgba(160,160,160,0.2);
+  padding: 20px;
+}
+  </style>
 
 
   </body>

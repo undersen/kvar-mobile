@@ -1,21 +1,76 @@
 <ion-view title="kVar" ng-init="init();">
 	<ion-content>
 
-		<div class="container nomargin vh-100 vw-100" style="background-color:#118914;" >
+		<div class="container nomargin vh-100 vw-100" style="background-color:#009688;" >
 
 
 
-			<img src="img/kvar.png" alt="" class="responsive-img mtvw-40" style="margin-left:27vw;width:50%" />
+			<img src="img/kvar.png" alt="" class="responsive-img mtvw-20" style="margin-left:27vw;width:50%" />
 
 			<div class="container">
 				<span style="color:white;font-size:20px;" class="center-align">a kVar & < Developmind > App</span>
 
+				<div class="input-field col s12 mtvh-10">
+					<input id="email" type="email" class="validate" ng-model="user.email">
+					<label for="email">Correo</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="password" type="password" class="validate" ng-model="user.pass">
+					<label for="password">Contraseña</label>
+				</div>
+
+
+
+					<a class="waves-effect waves-light btn w-100" style="background-color:#13504a;width: 100%;" ng-click="registerUser(user);">Realizar cotizacion</a>
 			</div>
 
+		</div>
+	</div>
 
-</div>
 
-<a class="waves-effect waves-light btn vw-100" style="position:absolute;bottom:0px;;" ng-click="goTo();">Realizar cotizacion</a>
 
-  </ion-content>
+</ion-content>
 </ion-view>
+
+
+<style>
+input[type=text]{
+border-bottom: 1px solid white;
+}
+
+input[type=password]{
+border-bottom: 1px solid white;
+}
+
+input[type=email]{
+border-bottom: 1px solid white;
+}
+
+input[type=text]:focus:not([readonly]){
+	border-bottom: 1px solid white;
+box-shadow: 0 1px 0 0 white;
+}
+
+input[type=email]:focus:not([readonly]){
+	border-bottom: 1px solid white;
+box-shadow: 0 1px 0 0 white;
+}
+
+input[type=password]:focus:not([readonly]){
+	border-bottom: 1px solid white;
+box-shadow: 0 1px 0 0 white;
+}
+
+
+.input-field label {
+    color: white;
+}
+
+input[type=text]:focus:not([readonly])+label {
+    color: white;
+}
+
+input[type=email].valid {
+	  color: white;
+}
+</style>

@@ -20,7 +20,7 @@
     ============================
     */
 
-    
+
     $stateProvider
     .state("/",{
       cache:false,
@@ -29,6 +29,16 @@
       controller: "SplashController"
 
     })
+
+
+    .state("quotation",{
+      cache:false,
+      url: "/quotation",
+      templateUrl: "/templates/quotation.html",
+      controller: "QuotationController"
+
+    })
+
 
 
     $urlRouterProvider.otherwise("/");
